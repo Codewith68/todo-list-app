@@ -1,0 +1,1492 @@
+/* CSS Reset & Variables */
+:root {
+  --primary-color: #611f69;
+  --primary-dark: #4a154b;
+  --btn-primary: #611f69;
+  --btn-hover: #4a154b;
+  --text-color: #1d1c1d;
+  --bg-color: #ffffff;
+  --bg-alt: #f4ede4;
+  --link-color: #1264a3;
+  --font-stack:
+    "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+    --timing-func: cubic-bezier(0.25, 1, 0.5, 1); /* Slack-like smooth ease */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-stack);
+  color: var(--text-color);
+  line-height: 1.5;
+  background-color: var(--bg-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+  max-width: 1260px;
+}
+
+/* Header & Nav */
+.main-header {
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  pointer-events: none; /* Let clicks pass through outside the pill */
+}
+
+/* Floating Pill Container */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background: #fff;
+    border-radius: 50px; /* Pill shape */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    pointer-events: auto; /* Re-enable clicks */
+    margin: 0 auto;
+    width: 95%; /* Mobile width */
+    max-width: 1260px; /* Max desktop width */
+}
+
+.logo img {
+  height: 25px; /* Slightly smaller to fit pill */
+}
+
+/* Mobile Menu Toggle (Checkbox Hack) */
+.nav-toggle {
+    display: none;
+}
+
+.mobile-menu-btn {
+    display: flex; /* Visible on mobile */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: all 0.3s;
+}
+
+/* Mobile Nav Drawer */
+.nav-links {
+    display: flex; /* Ensure flex layout for column alignment */
+    position: fixed;
+    top: 0;
+    right: -100%; /* Hidden by default */
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    flex-direction: column;
+    padding: 80px 20px;
+    z-index: 1000;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+}
+
+.nav-links.active,
+#nav-toggle:checked ~ .nav-links {
+    right: 0; /* Slide in */
+}
+
+.nav-item {
+    margin: 15px 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-caret {
+    font-size: 0.6rem;
+    color: #696969;
+    transition: transform 0.2s;
+}
+
+.nav-item:hover .nav-caret {
+    transform: rotate(180deg);
+}
+
+/* Mega Menu Dropdown (Desktop) */
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    padding: 20px;
+    border-radius: 8px;
+    width: 600px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    z-index: 101;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s var(--timing-func), transform 0.2s var(--timing-func);
+    pointer-events: none; /* Prevent accidental clicks when hidden */
+}
+
+.dropdown-col h4 {
+    font-size: 0.75rem;
+    color: #696969;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.dropdown-col a {
+    display: block;
+    color: var(--text-color);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+.dropdown-col a:hover {
+    color: var(--link-color);
+}
+.dropdown-col.promo-col {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+/* Mobile Nav Actions and specifics */
+.mobile-nav-actions {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column; 
+    gap: 15px;
+    width: 100%;
+}
+.mobile-nav-actions .btn {
+    width: 100%;
+}
+
+/* Hamburger Animation */
+#nav-toggle:checked ~ .mobile-menu-btn span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+#nav-toggle:checked ~ .mobile-menu-btn span:nth-child(2) {
+    opacity: 0;
+}
+#nav-toggle:checked ~ .mobile-menu-btn span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* Desktop Navigation - Reset for Large Screens is in Media Query */
+.nav-actions {
+    display: none; /* Hidden on mobile */
+}
+
+/* Intro Section (Headline & Buttons) */
+.intro-section {
+    padding: 100px 0 40px; /* Top padding for navbar space */
+    background-color: #fff;
+    text-align: center;
+}
+
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Reusing hero text styles for intro */
+/* ... existing hero-headline, hero-subhead styles apply ... */
+
+.intro-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.intro-logos img {
+    height: 25px;
+    opacity: 0.8;
+}
+
+
+/* Hero Section (Image) */
+.hero-section {
+    padding: 0 0 60px; /* No top padding, sits right under intro */
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.hero-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+}
+
+.hero-media {
+    width: 100%;
+    max-width: 1000px;
+    position: relative;
+    /* margin-top removed as it's now in its own section structure */
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.1);
+}
+
+/* Float Animation */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 30px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-width: 160px; /* Consistent width */
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: 2px solid var(--primary-color);
+}
+.btn-primary:hover {
+    background-color: #4a154b; /* Darker shade */
+    border-color: #4a154b;
+}
+
+.btn-primary-outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color); /* Updated to purple border */
+}
+.btn-primary-outline:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn .arrow {
+    margin-left: 8px;
+    font-size: 1.1em;
+}
+
+.btn-google {
+  background-color: #4285f4;
+  color: #fff;
+  text-transform: uppercase;
+}
+.btn-google:hover {
+  background-color: #3367d6;
+}
+.google-icon {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 2px;
+  margin-right: 10px;
+}
+
+.hero-disclaimer {
+  font-size: 0.8rem;
+  color: #696969;
+  margin-top: 10px;
+}
+
+/* Trusted Companies - Marquee */
+.trusted-companies {
+    padding: 60px 0;
+    background-color: #f4ede4;
+    text-align: center;
+    overflow: hidden; /* Hide overflow for marquee */
+}
+
+.trusted-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-color);
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-content {
+    display: flex;
+    gap: 60px; /* Space between logos */
+    width: max-content;
+    animation: marquee 30s linear infinite;
+}
+
+.marquee-content img {
+    height: 35px; /* Larger logos */
+    opacity: 1; /* Full opacity */
+    filter:  grayscale(100%); /* Optional: grayscale until hover if desired, preserving full color per user request for "exact" look usually means color */
+    /* Actually Slack uses colored logos, preserving. */
+}
+
+/* Animations */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Move half way (since content is duplicated) */
+}
+
+@keyframes fadeUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-fade-up {
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+.floating-anim {
+    animation: float 6s ease-in-out infinite;
+}
+
+
+/* Feature Sections */
+.feature-section {
+  padding: 50px 0;
+}
+.alt-bg {
+  background-color: #f4ede4;
+}
+
+.feature-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.feature-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.arrow-link {
+  color: var(--link-color);
+  font-weight: 400;
+  display: inline-block;
+  margin-top: 10px;
+  border-bottom: 1px solid transparent;
+}
+.arrow-link:hover {
+  border-bottom-color: var(--link-color);
+  text-decoration: none;
+}
+
+/* Stats & Awards Section */
+.stats-section {
+    padding: 80px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.stats-headline {
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin-bottom: 60px;
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+/* Stats Column (Left on Desktop) */
+.stats-col {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+}
+
+.stat-num {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.stat-desc {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+/* Awards Column (Right on Desktop) */
+.awards-col-split {
+    display: flex;
+    justify-content: center;
+}
+
+.awards-content {
+    max-width: 400px;
+}
+
+.awards-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.awards-content p {
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    color: #454245;
+}
+
+.awards-mini-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+.awards-mini-grid img {
+    width: 100%;
+    height: auto;
+}
+
+/* Reusing Bottom CTA styles... */
+.bottom-cta {
+    background-color: var(--primary-color);
+    padding: 60px 20px;
+    border-radius: 100vh;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+/* ... (rest of cta styles unchanged) */
+
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.invert-btn {
+    color: var(--primary-color);
+    background: #fff;
+}
+.invert-btn:hover {
+    background: #f1f1f1;
+}
+
+.invert-outline {
+    border-color: #fff;
+    color: #fff;
+}
+.invert-outline:hover {
+    color: #fff;
+    box-shadow: inset 0 0 0 1px #fff;
+}
+
+/* Deep Dive Section */
+.deep-dive-section {
+    padding: 60px 0 80px;
+    background-color: #f4ede4; /* Light beige matching other sections */
+}
+
+.deep-dive-headline {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.card {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Equal height */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.card-image {
+    overflow: hidden;
+    height: 200px; /* Fixed height for consistency */
+    position: relative; /* Needed for video absolute positioning */
+}
+
+.card-image img,
+.card-image video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.card-image img {
+    z-index: 2;
+    opacity: 1;
+}
+
+.card-image video {
+    z-index: 1;
+    opacity: 0;
+}
+
+/* Hover / Playing State */
+.card.is-playing .card-image img {
+    opacity: 0;
+}
+.card.is-playing .card-image video {
+    opacity: 1;
+}
+
+/* Maintain zoom effect on both image and video */
+.card:hover .card-image img,
+.card:hover .card-image video {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-category {
+    font-size: 0.8rem;
+    color: #696969;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    flex-grow: 1; /* Pushes link to bottom */
+}
+
+.card-link {
+    font-size: 0.9rem;
+    color: #1264a3;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.card-link .arrow {
+    transition: transform 0.2s;
+}
+.card:hover .card-link .arrow {
+    transform: translateX(5px);
+}
+
+/* Footer Styles */
+.main-footer {
+    padding: 60px 0 20px;
+    background: #fff;
+    font-size: 0.9rem;
+    border-top: 1px solid #ddd;
+}
+
+.footer-top {
+    margin-bottom: 40px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    gap: 40px 20px;
+    margin-bottom: 50px;
+}
+
+.footer-col h4 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.footer-col ul li {
+    margin-bottom: 15px;
+}
+
+.footer-col ul li a {
+    color: #454245;
+    font-size: 0.9rem;
+}
+.footer-col ul li a:hover {
+    color: var(--link-color);
+}
+
+.footer-copyright {
+    font-size: 0.75rem;
+    color: #696969;
+    border-top: 1px solid #efefef;
+    padding-top: 20px;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+
+/* Tablet (>= 768px) */
+@media (min-width: 768px) {
+  .main-header {
+    padding: 20px 0;
+  }
+
+  .hero-container {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+
+  .hero-content {
+    flex: 1;
+    padding-right: 30px;
+  }
+  .hero-media {
+    flex: 1.2;
+  }
+
+  .feature-container {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  /* Alternating Layout Logic */
+  .feature-section:nth-of-type(even) .feature-container {
+      flex-direction: row-reverse; /* Flip order for even sections */
+  }
+
+  .feature-media,
+  .feature-text {
+    flex: 1;
+  }
+  .feature-text {
+    padding: 0 40px;
+  }
+
+  .footer-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3 cols on tablet */
+  }
+
+  .cta-buttons {
+    flex-direction: row;
+    width: auto;
+  }
+  
+  .cards-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 cols on tablet */
+  }
+}
+
+/* Desktop (>= 1024px) */
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 40px;
+  }
+  
+  /* Awards Desktop */
+  .bottom-cta {
+      border-radius: 200px; /* Rounded pill style on desktop */
+  }
+
+  .hero-buttons {
+      flex-direction: row;
+      justify-content: center;
+      width: auto;
+      max-width: none;
+  }
+  
+  .hero-headline {
+      font-size: 4rem;
+  }
+  
+  /* Hero Container remains column on desktop to stack image below content */
+  .hero-container {
+      max-width: 1000px; /* Limit width to keep text readable */
+  }
+
+  /* Stats & Awards Desktop Split */
+  .stats-container {
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 100px;
+      text-align: left;
+  }
+  
+  .stats-col {
+      align-items: flex-start;
+  }
+  .stat-item {
+      align-items: flex-start;
+      flex-direction: row;
+      gap: 20px;
+      text-align: left;
+      max-width: 100%;
+  }
+  .stat-num {
+      min-width: 120px; /* Fixed width alignment for numbers */
+      text-align: right;
+  }
+
+  /* Deep Dive Desktop */
+  .cards-grid {
+      grid-template-columns: repeat(4, 1fr); /* 4 cols on desktop */
+  }
+
+  .mobile-menu-btn, .nav-toggle, .mobile-nav-actions {
+      display: none; /* Hide mobile triggers and actions */
+  }
+
+  /* Desktop Menu Hover Logic */
+  .nav-item.has-dropdown:hover .dropdown-menu {
+      display: grid;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+  }
+  
+  .nav-links {
+      display: flex;
+      position: static;
+      height: auto;
+      width: auto;
+      flex-direction: row;
+      background: transparent;
+      padding: 0;
+      box-shadow: none;
+      gap: 30px; /* Wider gap for desktop */
+      font-weight: 700;
+      font-size: 0.95rem;
+      align-items: center; /* Vertically align */
+  }
+  
+  .nav-item {
+      margin: 0;
+      font-size: 0.95rem; /* Reset font size */
+      padding: 10px 0; /* Add trigger area */
+      cursor: pointer;
+  }
+
+  .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+  }
+  
+  .footer-grid {
+      grid-template-columns: repeat(6, 1fr); /* 6 cols on desktop */
+  }
+
+  .nav-actions .btn {
+    width: auto;
+    font-size: 0.8rem;
+    padding: 10px 18px;
+  }
+
+  .btn-link {
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .btn-primary-outline {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    background: transparent;
+  }
+  .btn-primary-outline:hover {
+    background: transparent;
+    border-color: var(--btn-hover);
+    color: var(--btn-hover);
+  }
+
+  .hero-headline {
+    font-size: 3.5rem;
+  }
+
+  .hero-buttons {
+    flex-direction: row;
+    width: auto;
+  }
+  .hero-buttons .btn {
+    width: auto;
+  }
+}
+
+/* =========================================
+   Slack Hero Interface Component
+   ========================================= */
+
+.slack-app-window {
+    display: flex;
+    width: 100%;
+    max-width: 900px; /* Constrain width */
+    height: 550px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.2);
+    overflow: hidden; /* Clip contents */
+    font-family: 'Lato', sans-serif;
+    text-align: left; /* Reset alignment */
+    border: 1px solid #454245; /* Subtle border */
+    margin: 0 auto; /* Center it */
+}
+
+/* --- Sidebar --- */
+.slack-sidebar {
+    width: 260px;
+    background-color: #3f0e40; /* Deep Purple */
+    color: #cfc3cf; /* Light purple-grey text */
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.sidebar-header {
+    padding: 16px 20px;
+    font-weight: 900;
+    color: #fff;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #5d2c5d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.sidebar-header:hover {
+    background-color: #350d36;
+}
+.arrow-down {
+    font-size: 0.7rem;
+}
+
+.sidebar-nav {
+    padding: 15px 0;
+    border-bottom: 1px solid #5d2c5d;
+}
+
+.nav-icon-item {
+    padding: 8px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+.nav-icon-item:hover {
+    background-color: #350d36;
+    color: #fff;
+}
+.nav-icon-item.active {
+    background-color: #1164a3;
+    color: #fff;
+}
+.nav-icon-item .icon {
+    width: 20px;
+    text-align: center;
+}
+
+.channel-list {
+    padding: 15px 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.channel-header {
+    padding: 5px 20px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.channel-item {
+    padding: 6px 20px;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+.channel-item:hover {
+    background-color: #350d36;
+    color: #fff;
+}
+.channel-item.active {
+    background-color: #1164a3; /* Active Blue */
+    color: #fff;
+}
+
+.sidebar-footer {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.add-btn {
+    width: 36px;
+    height: 36px;
+    background: #5d2c5d;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.user-avatar img {
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+}
+
+
+/* --- Main Content --- */
+.slack-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.main-topbar {
+    height: 60px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.channel-title {
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: #1d1c1d;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #ddd;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.avatars {
+    display: flex;
+}
+.avatars img {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: -5px;
+    border: 2px solid #fff;
+}
+.member-count {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #696969;
+    margin-left: 5px;
+}
+
+.message-feed {
+    padding: 20px;
+    flex-grow: 1;
+    background-color: #fff;
+    overflow-y: hidden; /* Static view */
+}
+
+/* Generic Message Item */
+.message-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+    align-items: flex-start;
+}
+
+.gutter-icon {
+    width: 36px;
+    height: 36px;
+    background: #f2f2f2;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+.app-icon-small {
+    width: 20px;
+}
+
+.message-content {
+    flex-grow: 1;
+}
+
+.sender-name {
+    font-weight: 900;
+    font-size: 0.95rem;
+    display: block;
+    margin-bottom: 6px;
+}
+
+/* App Card (Calendar) */
+.app-card {
+    display: flex;
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #ddd; /* Subtle border for card */
+}
+
+.calendar-card-style {
+    display: flex;
+}
+.card-left-border {
+    width: 4px;
+    background-color: #1264a3; /* Slack Blue */
+    margin-right: 12px;
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 12px 8px 0;
+}
+
+.event-title {
+    font-weight: 700;
+    color: #1264a3;
+    font-size: 0.95rem;
+}
+
+.event-time {
+    font-size: 0.9rem;
+    color: #1d1c1d;
+}
+
+.action-pill {
+    background: #f2f2f2;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-top: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Huddle Card */
+.huddle-icon-bg {
+    background-color: #007a5a; /* Green for active huddle feeling, or stick to theme */
+    background-color: #0b4c8c; /* Dark Blue */
+    color: #fff;
+}
+
+.huddle-card-style {
+    margin-bottom: 10px;
+}
+
+.huddle-title {
+    font-weight: 900;
+    display: block;
+    margin-bottom: 4px;
+}
+.badge-live {
+    background: #cbfeb8; /* Light green */
+    color: #1f5615;
+    font-size: 0.65rem;
+    padding: 1px 4px;
+    border-radius: 2px;
+    margin-left: 6px;
+    vertical-align: middle;
+    font-weight: 700;
+    border: 1px solid #9bcc8a;
+}
+.huddle-desc {
+    font-size: 0.95rem;
+    color: #616061;
+}
+.huddle-desc a {
+    color: #1264a3;
+    font-weight: 700;
+}
+
+/* Huddle Block (Gradient + Avatars) */
+.huddle-active-block {
+    /* Gradient: warm yellow to pinkish */
+    background: linear-gradient(135deg, #e3d35a 0%, #d16ba5 100%); 
+    
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between; /* Avatars left, controls right */
+    align-items: flex-end; /* Controls at bottom right */
+    width: 100%;
+    max-width: 320px;
+    height: 120px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.huddle-avatar-grid {
+    display: flex;
+    gap: 10px;
+}
+.ha {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    border: 2px solid rgba(255,255,255,0.4);
+}
+.ha-1 { background-image: url('project_Slack/slack media/img-slackbot.png'); background-color: #3aa3e3; }
+.ha-2 { background-image: url('project_Slack/slack media/img-slackbot.png'); background-color: #e33a8c; }
+.ha-3 { 
+    background-color: #611f69; 
+    color: #fff;
+    display: flex; justify-content: center; align-items: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.huddle-controls {
+    display: flex;
+    gap: 8px;
+    background: rgba(0,0,0,0.3);
+    padding: 6px 10px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 0.85rem;
+    backdrop-filter: blur(4px);
+}
+.huddle-controls span {
+    cursor: pointer;
+    opacity: 0.9;
+}
+.huddle-controls span:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+
+/* Input Area */
+.message-input-area {
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    margin-top: auto; /* Push to bottom */
+}
+.input-box {
+    width: 100%;
+    height: 44px;
+    border-radius: 8px;
+    border: 1px solid #868686;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+
+/* Responsive Constraints for Interface */
+@media (max-width: 768px) {
+    .slack-app-window {
+        flex-direction: column;
+        height: auto;
+    }
+    .slack-sidebar {
+        width: 100%;
+        display: none; /* Hide sidebar on mobile to save space? Or just stack */
+    }
+    .slack-main {
+        width: 100%;
+        height: 450px;
+    }
+    .huddle-active-block {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   Business Stats Section (Dark Purple)
+   ========================================= */
+.business-stats-section {
+    background-color: #4a154b; /* Dark purple base */
+    padding: 80px 0;
+    color: #fff;
+    text-align: center;
+    /* Create the convex curve (Hill) at the top */
+    border-top-left-radius: 50% 100px;
+    border-top-right-radius: 50% 100px;
+    /* Optional: Negative margin to pull it up slightly if needed, 
+       but standard flow works if background is white */
+    width: 100%;
+    position: relative;
+    z-index: 2; /* Ensure it sits on top if we did negative margins */
+}
+
+.biz-headline {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 60px;
+}
+
+.biz-stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+}
+
+.biz-stat-item {
+    max-width: 300px;
+}
+
+.biz-percent {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #fff; /* White text */
+    display: block;
+    margin-bottom: 15px;
+    line-height: 1;
+    color: #cfc3cf; /* Fallback/Tint if needed, but image shows lilac/white options. Using lilac for number per image reference usually has contrast */
+    color: #e0dbe0; 
+}
+/* Specifically targeting the distinct purple number style from image if possible, 
+   the image shows very light lilac/white numbers */
+.biz-percent {
+    color: #d6b8e3; /* Lilac tint */
+}
+
+
+.biz-desc {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+    .biz-stats-grid {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 80px;
+    }
+}
+
+/* =========================================
+   Slackbot Promo Section
+   ========================================= */
+.slackbot-section {
+    padding: 60px 0;
+    /* Maintain white bg for section, card has the color */
+}
+
+.slackbot-card {
+    background: linear-gradient(135deg, #eef7ff 0%, #e0f0ff 100%); /* Light blue gradient */
+    border-radius: 24px;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.slackbot-content {
+    flex: 1;
+    text-align: left;
+    max-width: 500px;
+}
+
+.sb-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.sb-icon {
+    width: 24px;
+    height: 24px;
+}
+.sb-label {
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #1d1c1d;
+}
+
+.sb-headline {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.sb-desc {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #454245;
+    margin-bottom: 30px;
+    display: block;
+    font-weight: 400; /* reset bold */
+}
+
+.sb-link {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.slackbot-media {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.slackbot-media img {
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .slackbot-card {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 80px;
+        gap: 80px;
+    }
+    .slackbot-content {
+        order: 1; /* Left */
+    }
+    .slackbot-media {
+        order: 2; /* Right */
+        justify-content: flex-end;
+    }
+}
+
+/* Text Carousel */
+.text-carousel {
+    background-color: #4a154b; /* Dark purple matching theme */
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.carousel-track {
+    position: relative;
+    height: 24px; /* Fixed height for single line */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none; /* Prevent selection when hidden if needed */
+}
+
+.carousel-item.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}

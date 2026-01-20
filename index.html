@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slack is your productivity platform | Slack</title>
+    <link rel="icon" type="image/png" href="project_Slack/slack media/favicon-32.png">
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header / Navbar -->
+    <header class="main-header">
+      <nav class="nav-container">
+        <!-- Logo -->
+        <div class="logo">
+          <img
+            src="project_Slack/slack media/slack-salesforce-logo-nav-black.png"
+            alt="Slack Logo"
+          />
+        </div>
+
+            <!-- Mobile Menu Toggle (Checkbox Hack) -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li class="nav-item has-dropdown">
+                    <a href="#">Features <span class="nav-caret">▼</span></a>
+                    <!-- Mega Menu Dropdown -->
+                    <div class="dropdown-menu">
+                        <div class="dropdown-col">
+                            <h4>Featured</h4>
+                            <a href="#">Features</a>
+                            <a href="#">Channels</a>
+                            <a href="#">Digital HQ</a>
+                            <a href="#">Integrations</a>
+                            <a href="#">Security</a>
+                        </div>
+                        <div class="dropdown-col">
+                            <h4>Platform</h4>
+                            <a href="#">Workflow Builder</a>
+                            <a href="#">Slack Atlas</a>
+                            <a href="#">Slack Connect</a>
+                        </div>
+                        <div class="dropdown-col promo-col">
+                            <h4>Download Slack</h4>
+                            <p>Get the app for desktop and mobile.</p>
+                            <a href="#" class="link-arrow">Download ></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item has-dropdown"><a href="#">Solutions <span class="nav-caret">▼</span></a></li>
+                <li class="nav-item"><a href="#">Enterprise</a></li>
+                <li class="nav-item has-dropdown"><a href="#">Resources <span class="nav-caret">▼</span></a></li>
+                <li class="nav-item"><a href="#">Pricing</a></li>
+                <!-- Mobile Only Actions -->
+                <div class="mobile-nav-actions">
+                    <a href="#" class="btn-link">Sign In</a>
+                    <a href="#" class="btn btn-primary">GET STARTED</a>
+                </div>
+            </ul>
+
+            <!-- Header Actions (Desktop) -->
+            <div class="nav-actions">
+                <a href="#" class="search-icon"><img src="project_Slack/slack media/icon_chevron_black_nav-b5070a876814619dde70.svg" alt="" style="transform: rotate(90deg); width: 18px;"></a>
+                <a href="#" class="btn-link">Sign in</a>
+                <a href="#" class="btn btn-primary-outline">TALK TO SALES</a>
+                <a href="#" class="btn btn-primary">GET STARTED</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+       <!-- Text Carousel / Announcement Bar -->
+       <div class="text-carousel">
+           <div class="carousel-track">
+               <div class="carousel-item active"> New: Slack AI is now available for all plans!</div>
+               <div class="carousel-item"> Join us at Dreamforce 2025 - Register Now</div>
+               <div class="carousel-item"> Tip: Use Huddles for quick syncs with your team</div>
+           </div>
+       </div>
+
+      <!-- Intro Section (Headline, Buttons, Logos) -->
+      <section class="intro-section">
+          <div class="container intro-container">
+              <div class="intro-content animate-fade-up">
+                  <h1 class="hero-headline">Where <span class="text-highlight">work</span> happens</h1>
+                  <p class="hero-subhead">Share it. Discuss it. Get it done. Side by side with AI agents.</p>
+                  
+                  <div class="hero-buttons">
+                      <a href="#" class="btn btn-primary">GET STARTED</a>
+                      <a href="#" class="btn btn-primary-outline">FIND YOUR SUBSCRIPTION <span class="arrow">→</span></a>
+                  </div>
+  
+                  <!-- Into Logos -->
+                  <div class="intro-logos">
+                      <img src="project_Slack/slack media/logo-openai.png" alt="OpenAI">
+                      <img src="project_Slack/slack media/logo-spotify.png" alt="GM">
+                      <img src="project_Slack/slack media/logo-wayfair-small.png" alt="Target">
+                      <img src="project_Slack/slack media/logo-deliveroo.png" alt="Paramount">
+                      <img src="project_Slack/slack media/logo-monzo-small.png" alt="Stripe">
+                      <img src="project_Slack/slack media/logo-bolt-small.png" alt="IBM">
+                  </div>
+              </div>
+          </div>
+      </section>
+  
+      <!-- Hero Section (Interface Component) -->
+      <section class="hero-section">
+          <div class="container hero-container">
+              <div class="hero-media floating-anim">
+                  <!-- Coding the Slack Interface -->
+                  <div class="slack-app-window">
+                      <!-- Sidebar -->
+                      <div class="slack-sidebar">
+                          <div class="sidebar-header">
+                              <span class="team-name">A1 Company Ltd.</span>
+                              <span class="arrow-down">▼</span>
+                          </div>
+                          <div class="sidebar-nav">
+                              <div class="nav-icon-item active"><span class="icon">🏠</span> Home</div>
+                              <div class="nav-icon-item"><span class="icon">💬</span> DMs</div>
+                              <div class="nav-icon-item"><span class="icon">🔔</span> Activity</div>
+                          </div>
+                          <div class="channel-list">
+                              <div class="channel-header">Channels</div>
+                              <div class="channel-item"># announcements</div>
+                              <div class="channel-item active"># project-gizmo</div>
+                              <div class="channel-item"># team-marketing</div>
+                          </div>
+                          <div class="sidebar-footer">
+                              <div class="add-btn">+</div>
+                              <div class="user-avatar"><img src="project_Slack/slack media/img-slackbot.png" alt="User"></div>
+                          </div>
+                      </div>
+
+                      <!-- Main Content -->
+                      <div class="slack-main">
+                          <!-- Top Bar -->
+                          <div class="main-topbar">
+                              <div class="channel-title"># project-gizmo</div>
+                              <div class="topbar-actions">
+                                  <div class="avatars">
+                                      <img src="project_Slack/slack media/img-slackbot.png" alt="">
+                                      <img src="project_Slack/slack media/img-slackbot.png" alt="">
+                                  </div>
+                                  <span class="member-count">15</span>
+                              </div>
+                          </div>
+
+                          <!-- Message Area -->
+                          <div class="message-feed">
+                              <!-- Date/Divider? Optional -->
+                              
+                              <!-- Calendar Card -->
+                              <div class="message-item">
+                                  <div class="gutter-icon"><img src="project_Slack/slack media/play-button.png" class="app-icon-small" alt="GCal"></div>
+                                  <div class="message-content">
+                                      <span class="sender-name">Google Calendar</span>
+                                      <div class="app-card calendar-card-style">
+                                          <div class="card-left-border"></div>
+                                          <div class="card-text">
+                                              <span class="event-title">Project Status Meeting</span>
+                                              <span class="event-time">Today from 01:30–02:00 IST</span>
+                                              <div class="event-actions">
+                                                  <span class="action-pill">⚠️ 6</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <!-- Huddle Card -->
+                              <div class="message-item">
+                                  <div class="gutter-icon huddle-icon-bg">🎧</div>
+                                  <div class="message-content">
+                                      <div class="huddle-card-style">
+                                          <span class="huddle-title">A huddle is happening <span class="badge-live">LIVE</span></span>
+                                          <span class="huddle-desc">Kriti Sanyal and five others are in it. <a href="#">Join them</a></span>
+                                      </div>
+                                      <!-- Huddle Avatars Block -->
+                                      <div class="huddle-active-block">
+                                           <div class="huddle-avatar-grid">
+                                               <!-- Placeholders for colored avatars -->
+                                               <div class="ha ha-1"></div>
+                                               <div class="ha ha-2"></div>
+                                               <div class="ha ha-3">+3</div>
+                                           </div>
+                                           <div class="huddle-controls">
+                                               <span>🎙️</span> <span>📹</span> <span>🖥️</span>
+                                           </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <!-- Input Box -->
+                          <div class="message-input-area">
+                              <div class="input-box"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  
+      <!-- Trusted Companies Section -->
+      <section class="trusted-companies">
+        <div class="container">
+          <p class="trusted-text">TRUSTED BY COMPANIES ALL OVER THE WORLD</p>
+          <!-- Marquee Wrapper -->
+          <div class="marquee-container">
+            <div class="marquee-content">
+              <!-- Duplicate content for seamless scrolling loop -->
+              <img src="project_Slack/slack media/logo-openai.png" alt="OpenAI" />
+              <img
+                src="project_Slack/slack media/logo-deliveroo.png"
+                alt="Deliveroo"
+              />
+              <img
+                src="project_Slack/slack media/logo-spotify.png"
+                alt="Spotify"
+              />
+              <img
+                src="project_Slack/slack media/logo-ezcater.png"
+                alt="ezCater"
+              />
+              <img
+                src="project_Slack/slack media/logo-wayfair-small.png"
+                alt="Wayfair"
+              />
+              <img
+                src="project_Slack/slack media/logo-bba.png"
+                alt="BBC"
+                onerror="this.style.display = 'none'"
+              />
+              
+              <!-- Duplicates -->
+              <img src="project_Slack/slack media/logo-openai.png" alt="OpenAI" />
+              <img
+                src="project_Slack/slack media/logo-deliveroo.png"
+                alt="Deliveroo"
+              />
+              <img
+                src="project_Slack/slack media/logo-spotify.png"
+                alt="Spotify"
+              />
+              <img
+                src="project_Slack/slack media/logo-ezcater.png"
+                alt="ezCater"
+              />
+              <img
+                src="project_Slack/slack media/logo-wayfair-small.png"
+                alt="Wayfair"
+              />
+              <img
+                src="project_Slack/slack media/logo-bba.png"
+                alt="BBC"
+                onerror="this.style.display = 'none'"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature Section 1 -->
+      <section class="feature-section alt-bg">
+        <div class="container feature-container">
+          <div class="feature-media">
+            <img
+              src="project_Slack/slack media/hp-vp-1.en-GB@2x.jpg.jpeg"
+              alt="Move faster with your tools in one place"
+            />
+          </div>
+          <div class="feature-text">
+            <h2>Move faster with your tools in one place</h2>
+            <p>
+              Automate away routine tasks with the power of generative AI and
+              simplify your workflow with all your favourite apps ready to go in
+              Slack.
+            </p>
+            <a href="#" class="arrow-link"
+              >Learn more about the Slack platform</a
+            >
+          </div>
+        </div>
+      </section>
+
+        <!-- Feature Section 2 -->
+        <section class="feature-section">
+            <div class="container feature-container">
+                <div class="feature-media order-change"> <!-- Helper class to swap visual order on desktop -->
+                    <img src="project_Slack/slack media/hp-vp-3.en-GB@2x.jpg.jpeg" alt="Choose how you want to work">
+                </div>
+                <div class="feature-text">
+                    <h2>Choose how you want to work</h2>
+                    <p>In Slack, you’ve got all the flexibility to work when, where and how it’s best for you. You can easily chat, send audio and video clips, or hop on a huddle to talk things out live.</p>
+                    <a href="#" class="arrow-link">Learn more about flexible communication</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Section 3 -->
+        <section class="feature-section alt-bg">
+            <div class="container feature-container">
+                <div class="feature-media">
+                    <img src="project_Slack/slack media/hp-vp-4.en-GB@2x.jpg.jpeg" alt="Bring your team together">
+                </div>
+                <div class="feature-text">
+                    <h2>Bring your team together</h2>
+                    <p>At the heart of Slack are channels: organised spaces for everyone and everything you need for work. In channels, it’s easier to connect across departments, offices, time zones and even with other companies.</p>
+                    <a href="#" class="arrow-link">Learn more about channels</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slackbot Promo Section -->
+        <section class="slackbot-section">
+            <div class="container">
+                <div class="slackbot-card">
+                    <div class="slackbot-content">
+                        <div class="sb-header">
+                            <img src="project_Slack/slack media/slackbot-nav-icon.svg" alt="Slackbot" class="sb-icon">
+                            <span class="sb-label">SLACKBOT</span>
+                        </div>
+                        <h2 class="sb-headline">Meet Slackbot: Your personal agent for work.</h2>
+                        <b class="sb-desc">Slackbot isn’t just any AI. It’s AI that knows your team inside and out. It adapts to your style, finds what you need and helps to get work done faster.</b>
+                        <a href="#" class="arrow-link sb-link">Learn more <span class="arrow">→</span></a>
+                    </div>
+                    <div class="slackbot-media">
+                        <img src="project_Slack/slack media/img-slackbot-discovery-1.en-GB.png" alt="Slackbot Interface">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Business Stats Section -->
+        <section class="business-stats-section">
+            <div class="container">
+                <h2 class="biz-headline">We’re in the business of growing businesses.</h2>
+                <div class="biz-stats-grid">
+                    <div class="biz-stat-item">
+                        <span class="biz-percent">85%</span>
+                        <p class="biz-desc">of users say that Slack helps them to stay more connected<sup>5</sup></p>
+                    </div>
+                    <div class="biz-stat-item">
+                        <span class="biz-percent">41</span>
+                        <p class="biz-desc">The average number of apps used by teams in Slack<sup>3</sup></p>
+                    </div>
+                    <div class="biz-stat-item">
+                        <span class="biz-percent">83%</span>
+                        <p class="biz-desc">of users say that Slack helps them to collaborate more efficiently<sup>5</sup></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats & Awards Section -->
+        <section class="stats-section">
+            <div class="container">
+                <h2 class="stats-headline">Millions of people love to work in Slack.</h2>
+                
+                <div class="stats-container">
+                    <!-- Left: Stats -->
+                    <div class="stats-col">
+                        <div class="stat-item">
+                            <span class="stat-num">700M</span>
+                            <p class="stat-desc">messages sent daily<sup>1</sup></p>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">4M</span>
+                            <p class="stat-desc">Slack Connect users working directly with external teams each week<sup>1</sup></p>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">3M</span>
+                            <p class="stat-desc">daily workflows<sup>1</sup></p>
+                        </div>
+                         <div class="stat-item">
+                            <span class="stat-num">1.7M</span>
+                            <p class="stat-desc">apps actively used each week<sup>1</sup></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: G2 Awards -->
+                    <div class="awards-col-split">
+                        <div class="awards-content">
+                            <h3>Don’t just take our word for it.</h3>
+                            <p>Slack is a leader in over 314 G2 market reports<sup>6</sup></p>
+                            <div class="awards-mini-grid">
+                                <img src="project_Slack/slack media/G2_Best_Results_winter_2026.png" alt="Best Results">
+                                <img src="project_Slack/slack media/G2_Easiest_to_use_winter_2026.png" alt="Easiest To Use">
+                                <img src="project_Slack/slack media/G2_Highest_user_adoption_winter_2026.png" alt="Highest Adoption">
+                                <img src="project_Slack/slack media/G2_SMB_Leader_winter_2026.png" alt="Small Business Leader">
+                                <img src="project_Slack/slack media/G2_MM_Leader_winter_2026.png" alt="Mid Market Leader">
+                                <img src="project_Slack/slack media/G2_ENT_Leader_winter_2026.png" alt="Enterprise Leader">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action Footer Precursor -->
+                <div class="bottom-cta">
+                    <h2>See all that you can accomplish with Slack</h2>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-primary-white invert-btn">TRY FOR FREE</a>
+                        <a href="#" class="btn btn-primary-outline invert-outline">TALK TO SALES</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deep Dive Section -->
+        <section class="deep-dive-section">
+            <div class="container">
+                <h2 class="deep-dive-headline">Your Slack deep dive starts here.</h2>
+                <div class="cards-grid">
+                    <!-- Card 1: Event -->
+                    <a href="#" class="card">
+                        <div class="card-image">
+                            <img src="project_Slack/slack media/promo-dreamforce-2025.png" alt="Dreamforce Event">
+                            <video 
+                                data-src="https://videos.pexels.com/video-files/3205626/3205626-hd_1920_1080_25fps.mp4" 
+                                muted loop playsinline preload="none">
+                            </video>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">Event</span>
+                            <h3>Join us at Dreamforce, the world’s largest, most trusted technology event.</h3>
+                            <span class="card-link">READ MORE <span class="arrow">→</span></span>
+                        </div>
+                    </a>
+
+                    <!-- Card 2: Webinar -->
+                    <a href="#" class="card">
+                        <div class="card-image">
+                            <img src="project_Slack/slack media/img-slackbot-discovery-1.en-GB.png" alt="Agentic Productivity">
+                            <video 
+                                data-src="https://videos.pexels.com/video-files/855564/855564-hd_1920_1080_25fps.mp4" 
+                                muted loop playsinline preload="none">
+                            </video>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">Webinar</span>
+                            <h3>Unlock agentic productivity for every employee</h3>
+                            <span class="card-link">WATCH NOW <span class="arrow">→</span></span>
+                        </div>
+                    </a>
+
+                    <!-- Card 3: Blog -->
+                    <a href="#" class="card">
+                        <div class="card-image">
+                            <img src="project_Slack/slack media/hero@2x.en-GB.jpg.jpeg" alt="Agentforce 2.0"> <!-- Reusing hero as placeholder for blog if specific one missing -->
+                            <video 
+                                data-src="https://videos.pexels.com/video-files/3571264/3571264-hd_1920_1080_30fps.mp4" 
+                                muted loop playsinline preload="none">
+                            </video>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">Blog</span>
+                            <h3>Agentforce 2.0: Agentforce arrives in Slack</h3>
+                            <span class="card-link">READ NOW <span class="arrow">→</span></span>
+                        </div>
+                    </a>
+
+                    <!-- Card 4: Guide -->
+                    <a href="#" class="card">
+                        <div class="card-image">
+                            <img src="project_Slack/slack media/promo-10-ways.png" alt="10 Ways Guide">
+                            <video 
+                                data-src="https://videos.pexels.com/video-files/4114797/4114797-uhd_2560_1440_25fps.mp4" 
+                                muted loop playsinline preload="none">
+                            </video>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">Guide</span>
+                            <h3>Ten ways to replace ineffective meetings with Slack</h3>
+                            <span class="card-link">READ MORE <span class="arrow">→</span></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                     <img src="project_Slack/slack media/logo.svg" alt="Slack" style="width: 50px;">
+                </div>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>PRODUCT</h4>
+                    <ul>
+                        <li><a href="#">Watch demo</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Paid vs free</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                        <li><a href="#">Featured releases</a></li>
+                        <li><a href="#">Change log</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>WHY SLACK?</h4>
+                    <ul>
+                        <li><a href="#">Slack vs email</a></li>
+                        <li><a href="#">Channels</a></li>
+                        <li><a href="#">Engagement</a></li>
+                        <li><a href="#">Scale</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>FEATURES</h4>
+                    <ul>
+                        <li><a href="#">Channels</a></li>
+                        <li><a href="#">Slack Connect</a></li>
+                        <li><a href="#">Workflow Builder</a></li>
+                        <li><a href="#">Messaging</a></li>
+                        <li><a href="#">Huddles</a></li>
+                        <li><a href="#">Canvas</a></li>
+                        <li><a href="#">Clips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SOLUTIONS</h4>
+                    <ul>
+                        <li><a href="#">Engineering</a></li>
+                        <li><a href="#">IT</a></li>
+                        <li><a href="#">Customer Service</a></li>
+                        <li><a href="#">Sales</a></li>
+                        <li><a href="#">Project Management</a></li>
+                        <li><a href="#">Marketing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">Help Centre</a></li>
+                        <li><a href="#">What's new</a></li>
+                        <li><a href="#">Resources library</a></li>
+                        <li><a href="#">Slack blog</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Developers</a></li>
+                        <li><a href="#">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Newsroom</a></li>
+                        <li><a href="#">Media kit</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    &copy; 2026 Slack Technologies, LLC, a Salesforce company. All rights reserved. Various trademarks held by their respective owners.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
